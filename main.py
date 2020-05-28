@@ -31,13 +31,13 @@ if __name__ == "__main__":
     job_exe = os.getenv("job_exe")
     administratie = os.getenv("administratie")
     job_num = os.getenv("job_num")
-    xml_taken_file = os.getenv("xml_taken_file")
+    export_bestand = os.getenv("export_bestand")
     ics_file = os.getenv("ics_file")
     
     # run job
     subprocess.call([job_exe, "EA", administratie, "JOB", job_num, "RUN"])
 
     # convert xml to ics
-    c = xml_to_ics(xml_taken_file)
+    c = xml_to_ics(export_bestand)
     with open(ics_file, "w") as f:
         f.write(str(c))
